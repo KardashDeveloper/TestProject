@@ -1,0 +1,146 @@
+
+= UserController documentation
+
+Doc Writer <Kardash Olexandr>
+
+== Adding new user
+
+A 'Post' request with json, specifying user fields.
+Response is user's uuid.
+
+=== Proper request
+
+
+==== Example request
+
+include::{snippets}/adduser_created/http-request.adoc[]
+
+
+==== Example response
+
+
+include::{snippets}/adduser_created/http-response.adoc[]
+
+
+=== Invalid request
+
+Fields are empty or not specified.
+
+==== Example request
+
+
+include::{snippets}/adduser_badrequest/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/adduser_badrequest/http-response.adoc[]
+
+=== Adding existing user
+
+
+==== Example request
+
+include::{snippets}/adduser_conflict/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/adduser_conflict/http-response.adoc[]
+
+
+
+== Login
+
+A 'Post' request with json, specifying user's email and password.
+Response is unique token, that is always generated.
+
+=== Proper request
+
+==== Example request
+
+include::{snippets}/login_ok/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/login_ok/http-response.adoc[]
+
+=== Invalid request
+
+Wrong email
+
+==== Example request
+
+include::{snippets}/login_wrongemail/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/login_wrongemail/http-response.adoc[]
+
+Wrong password(user by email exists, but wrong password)
+
+==== Example request
+
+include::{snippets}/login_wrongpassword/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/login_wrongpassword/http-response.adoc[]
+
+== Get user's first and last name by specifying email
+
+A 'Get' request including email in url.
+Response is json with fields: firstName, lastName.
+
+=== Proper request
+
+
+==== Example request
+
+include::{snippets}/getUserByEmail_ok/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/getUserByEmail_ok/http-response.adoc[]
+
+=== Bad request
+
+==== Example request
+
+include::{snippets}/getUserByEmail_badrequest/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/getUserByEmail_badrequest/http-response.adoc[]
+
+== Upload image
+
+A 'Post' request, uploading file-image, giving user's uuid in url.
+
+=== Proper request
+
+==== Example request
+
+include::{snippets}/saveImage_ok/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/saveImage_ok/http-response.adoc[]
+
+=== Invalid request
+
+Wrong uuid.
+
+==== Example request
+
+include::{snippets}/saveImage_wronguuid/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/saveImage_wronguuid/http-response.adoc[]
+
+
+
+
+
+
+
+
